@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HRM.Models.Admin.Payments.EmployeePaymentList>
+
+@{
+    ViewData["Title"] = "EmployeePaymentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>EmployeePaymentList</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditEmployeePayment", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
