@@ -31,6 +31,7 @@ namespace HR_Management_System.Helper
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IAssignProjectService, AssignProjectService>();
         }
     }
 }

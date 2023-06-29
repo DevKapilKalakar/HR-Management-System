@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HRM.Services
 {
-    public class EmployeeService:IEmployeeService
+    public class EmployeeService : IEmployeeService
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,7 +18,7 @@ namespace HRM.Services
 
         public async Task<List<GetEmployeeInfo>> GetAllEmployeesAsync()
         {
-            var employees =await _unitOfWork.Employees.All().Select(u => new GetEmployeeInfo
+            var employees = await _unitOfWork.Employees.All().Select(u => new GetEmployeeInfo
             {
                 Name = u.Name,
                 Id = u.Id,
@@ -59,24 +59,24 @@ namespace HRM.Services
                 Qualification = u.Qualification,
                 Skills = u.Skills
             }).FirstOrDefaultAsync(u => u.Id == id);
-            return employee; 
-         }
+            return employee;
+        }
 
         public async Task UpdateEmployeeAsync(EditEmployeeInfo model)
         {
             var employee = await _unitOfWork.Employees.All().FirstOrDefaultAsync(a => a.Id == model.Id);
             if (employee == null) { return; }
-            
-                employee.Name = model.Name;
-                employee.Phone = model.Phone;
-                employee.Qualification = model.Qualification;
-                employee.Skills = model.Skills;
-                employee.Phone = model.Phone;
-                employee.Experience = model.Experience;
-                employee.LoginId = model.LoginId;
-                employee.Password = model.Password;
-            
-            
+
+            employee.Name = model.Name;
+            employee.Phone = model.Phone;
+            employee.Qualification = model.Qualification;
+            employee.Skills = model.Skills;
+            employee.Phone = model.Phone;
+            employee.Experience = model.Experience;
+            employee.LoginId = model.LoginId;
+            employee.Password = model.Password;
+
+
             _unitOfWork.Employees.Update(employee);
             await _unitOfWork.SaveAsync();
 
@@ -110,3 +110,4 @@ namespace HRM.Services
 
     }
 }
+ 

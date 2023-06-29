@@ -13,6 +13,7 @@ namespace HRM.Infrastructure
         IBaseRepository<Employee> Employees { get; }
         IBaseRepository<Candidate> Candidates { get; }
         IBaseRepository<Project> Projects { get; }
+        IBaseRepository<EmployeeAssignProject> EmployeeAssignProjects{ get; }
         Task<int> SaveAsync();
     }
 }

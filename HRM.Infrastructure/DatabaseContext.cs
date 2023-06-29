@@ -10,5 +10,6 @@ namespace HRM.Infrastructure
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Candidate> Candidates { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<EmployeeAssignProject> EmployeeAssignProjects { get; set; }
     }
 }

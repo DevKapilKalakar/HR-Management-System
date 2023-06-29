@@ -60,7 +60,7 @@ namespace HRM.Services
             canndidate.PhoneNumber=model.PhoneNumber;
             canndidate.Email=model.Email;
             canndidate.CandidateName = model.CandidateName;
-             _unitOfWork.Candidates.Update(canndidate);
+            _unitOfWork.Candidates.Update(canndidate);
             await _unitOfWork.SaveAsync(); 
 
         }
@@ -69,7 +69,6 @@ namespace HRM.Services
         {
             var canndidate = await _unitOfWork.Candidates.All().FirstOrDefaultAsync(a => a.Id == id);
             if (canndidate == null) { return; }
-
 
             _unitOfWork.Candidates.Delete(canndidate);
             await _unitOfWork.SaveAsync();

@@ -70,7 +70,7 @@ namespace HR_Management_System.Controllers
         public async Task<IActionResult> EmployeePaymentList()
         {
             var payment = await _adminService.GetEmployeePaymentListAsync();
-            return View(payment);
+            return View(payment);    
         }
 
         public async Task<IActionResult> EditEmployeePayment(int id)

@@ -46,6 +46,7 @@ namespace HRM.Services
 
             return new ProjectInfo
             { 
+
                 Id = project.Id,
                 Name = project.Name
             };

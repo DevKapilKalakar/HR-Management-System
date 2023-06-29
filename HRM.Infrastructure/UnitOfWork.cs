@@ -10,6 +10,7 @@ namespace HRM.Infrastructure
         private IBaseRepository<Employee> _employees;
         private IBaseRepository<Candidate> _candidate;
         private IBaseRepository<Project> _project;
+        private IBaseRepository<EmployeeAssignProject> _eloyeeAssignProject;
         public UnitOfWork(DatabaseContext dbContext) 
         {
             _dbContext = dbContext;    
@@ -18,6 +19,7 @@ namespace HRM.Infrastructure
         public IBaseRepository<Employee> Employees => _employees ??= new BaseRepository<Employee>(_dbContext);
         public IBaseRepository<Candidate> Candidates => _candidate ??= new BaseRepository<Candidate>(_dbContext);
         public IBaseRepository<Project> Projects => _project ??= new BaseRepository<Project>(_dbContext);
+        public IBaseRepository<EmployeeAssignProject> EmployeeAssignProjects=> _eloyeeAssignProject ??= new BaseRepository<EmployeeAssignProject>(_dbContext);
 
         protected virtual void Dispose(bool disposing) 
         {
